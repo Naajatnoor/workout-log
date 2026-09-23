@@ -10,7 +10,7 @@ const oswald = Oswald({
 
 const Navbar = () => {
     return (
-        <nav className="bg-[#0C0D10] py-5 border-b border-[#333334]">
+        <nav className=" py-5  bg-[#0C0D10]  border-b border-[#333334]">
             <div className='flex justify-between items-center ml-8 mr-8'>
                  <div className=' flex items-center gap-4'>
                     <Image src={Logo} alt="fit-Log" className=''></Image>
