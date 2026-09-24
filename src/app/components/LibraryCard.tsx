@@ -1,6 +1,19 @@
 import React from 'react';
 import { IWorkout } from '@/types/info.type';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faClock,
+  faFire,
+} from "@fortawesome/free-solid-svg-icons";
+
+import {
+  faStar
+} from "@fortawesome/free-regular-svg-icons";
+
+
 
 interface LibraryCardProps {
   library: IWorkout;
@@ -20,24 +33,7 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
         />
       </div>
 
-      {/* Content */}
       <div className="p-5">
-
-        {/* Name + Rating */}
-        <div className="mb-3 flex items-center justify-between gap-3">
-          <h2 className="text-xl font-bold">
-            {library.name}
-          </h2>
-
-          <span className="rounded-full bg-yellow-500/20 px-3 py-1 text-sm text-yellow-400">
-            ⭐ {library.rating}
-          </span>
-        </div>
-
-        {/* Difficulty */}
-        <span className="mb-4 inline-block rounded-full bg-purple-500/20 px-3 py-1 text-sm text-purple-400">
-          {library.difficulty}
-        </span>
 
         {/* Muscle Groups */}
         <div className="mb-4 flex flex-wrap gap-2">
@@ -51,45 +47,67 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
           ))}
         </div>
 
-        {/* Workout Info */}
-        <div className="grid grid-cols-2 gap-3 border-y border-gray-800 py-4 text-sm">
-          <div>
-            <p className="text-gray-500">Equipment</p>
-            <p className="mt-1 text-gray-200">{library.equipment}</p>
-          </div>
-
-          <div>
-            <p className="text-gray-500">Duration</p>
-            <p className="mt-1 text-gray-200">{library.duration} min</p>
-          </div>
-
-          <div>
-            <p className="text-gray-500">Sets</p>
-            <p className="mt-1 text-gray-200">{library.sets}</p>
-          </div>
-
-          <div>
-            <p className="text-gray-500">Reps</p>
-            <p className="mt-1 text-gray-200">{library.reps}</p>
-          </div>
-
-          <div>
-            <p className="text-gray-500">Calories</p>
-            <p className="mt-1 text-gray-200">
-              {library.caloriesBurned} kcal
-            </p>
-          </div>
+        <div className="mb-2 flex items-center justify-between gap-3">
+          <h2 className="text-[25px] font-bold">
+            {library.name}
+          </h2>
         </div>
 
-        {/* Description */}
-        <p className="mt-4 line-clamp-2 text-sm leading-6 text-gray-400">
-          {library.description}
-        </p>
+        <div>
+            <p className="my-1 text-gray-500">{library.equipment}</p>
+          </div>
+
+<div className="flex flex-wrap items-center gap-x-15 gap-y-4 border-t border-[#292D35] pt-5 mt-5">
+
+  <div className="flex items-center gap-2 whitespace-nowrap">
+    <FontAwesomeIcon
+      icon={faClock}
+      className="text-[#9CA3AF] text-[16px]"
+    />
+
+    <span className="text-[16px] text-[#9CA3AF]">
+      {library.duration} min
+    </span>
+  </div>
+
+  {/* Calories */}
+  <div className="flex items-center gap-2 whitespace-nowrap">
+    <FontAwesomeIcon
+      icon={faFire}
+      className="text-[#9CA3AF] text-[16px]"
+    />
+
+    <span className="text-[16px] text-[#9CA3AF]">
+      {library.caloriesBurned} kcal
+    </span>
+  </div>
+
+  {/* Rating */}
+  <div className="flex items-center gap-2 whitespace-nowrap">
+    <FontAwesomeIcon
+      icon={faStar}
+      className="text-[#9CA3AF] text-[16px]"
+    />
+
+    <span className="text-[16px] text-[#9CA3AF]">
+      {library.rating}
+    </span>
+  </div>
+
+</div>
+
+
 
         {/* Button */}
-        <button className="mt-5 w-full rounded-lg bg-white px-4 py-3 font-semibold text-black transition hover:bg-gray-200">
+
+        <Link href={`/libraries/${library.id}`}>
+           
+           <button className="mt-5 w-full rounded-lg bg-white px-4 py-3 font-semibold text-black transition hover:bg-gray-200">
           View Workout
         </button>
+
+        </Link>
+        
 
       </div>
     </div>

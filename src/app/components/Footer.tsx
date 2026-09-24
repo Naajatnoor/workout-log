@@ -11,7 +11,7 @@ const oswald = Oswald({
 const Footer= () => {
     return (
 <div className="bg-[#0C0D10] py-10 border-t border-[#333334] ">
-              <div className='flex justify-between items-center ml-8 mr-8'>
+              <div className='flex justify-between items-center ml-8 mr-8 flex-col md:flex-row'>
                  <div className=' flex items-center gap-2'>
                     <Image src={footerLogo} alt="fit-Log" width={20}></Image>
                     <h1 className={`${oswald.className} text-[13px]  text-white `}>FITLOG</h1>
