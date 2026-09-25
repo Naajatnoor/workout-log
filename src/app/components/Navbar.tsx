@@ -36,12 +36,13 @@
 
 
 
-
+'use client'
 import Image from 'next/image';
 import React from 'react';
 import Logo from '../../assets/logo.png';
 import { Oswald } from 'next/font/google';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -49,6 +50,7 @@ const oswald = Oswald({
 });
 
 const Navbar = () => {
+  const pathname = usePathname();
   return (
     <nav className="py-5 bg-[#0C0D10] border-b border-[#333334]">
       <div className="mx-8 flex items-center justify-between">
@@ -64,12 +66,13 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-4 text-white">
          <li>
-          <Link href="#"  className="block py-3 hover:text-[#9CA3AF] transition">
+          <Link href="/"   className={pathname === "/" ? "text-[#C2F800] bg-[#1A2312] px-4 py-3 rounded-full hover:text-[#C2F890] transition" : " text-[#9CA3AF]"}>
            Workouts
           </Link>
+        
           </li>
           <li>
-          <Link href="#"  className="block py-3 hover:text-[#9CA3AF] transition">
+          <Link href="plans"  className={pathname === "/plans" ? "text-[#C2F800] bg-[#1A2312] px-4 py-3 rounded-full hover:text-[#C2F890] transition" : "text-[#9CA3AF]"}>
           My Plan
           </Link>
           </li>
@@ -120,23 +123,27 @@ const Navbar = () => {
       <div className="hidden peer-checked:block lg:hidden mt-5 border-t border-[#333334]">
         <ul className="flex flex-col px-8 pt-4 text-white">
 
-          <li>
-          <Link href="#"  className="block py-3 hover:text-[#9CA3AF] transition">
+         <li>
+          <Link href="/"   className={pathname === "/" ? "text-[#C2F800] bg-[#1A2312] px-4 py-3 rounded-full hover:text-[#C2F890] transition" : " text-[#9CA3AF]"}>
            Workouts
           </Link>
+        
           </li>
-          <li>
-          <Link href="#"  className="block py-3 hover:text-[#9CA3AF] transition">
+          <li className='py-4'>
+          <Link href="plans"  className={pathname === "/plans" ? "text-[#C2F800] bg-[#1A2312] px-4 py-3 rounded-full hover:text-[#C2F890] transition" : "text-[#9CA3AF]"}>
           My Plan
           </Link>
           </li>
+       
+
 
             
           <li className="flex items-center gap-5 py-3 border-t border-[#333334] mt-2">
-            <button className="text-white">
-              Plan
-            </button>
 
+           
+            <button className="text-[#9CA3AF]">
+             Plan
+            </button>
             <button className="text-[#9CA3AF]">
               Save
             </button>

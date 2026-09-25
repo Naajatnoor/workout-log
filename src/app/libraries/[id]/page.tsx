@@ -127,7 +127,7 @@ const LibraryDetailPage = async ({
               </span>
             </div>
 
-            {/* Duration */}
+       
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#252932]">
               <span className="text-[9px] font-bold tracking-wider text-[#8B929D] uppercase">
                 Duration
@@ -138,7 +138,7 @@ const LibraryDetailPage = async ({
               </span>
             </div>
 
-            {/* Calories */}
+           
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#252932]">
               <span className="text-[9px] font-bold tracking-wider text-[#8B929AF] uppercase">
                 Calories
@@ -149,7 +149,7 @@ const LibraryDetailPage = async ({
               </span>
             </div>
 
-            {/* Rating */}
+         
             <div className="flex items-center justify-between px-4 py-3">
               <span className="text-[9px] font-bold tracking-wider text-[#8B929D] uppercase">
                 Rating
