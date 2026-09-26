@@ -19,24 +19,24 @@ const Footer = () => {
           mx-5 sm:mx-8
         "
       >
-      
-        <div className="flex items-center gap-2">
-          <Image
-            src={footerLogo}
-            alt="fit-Log"
-            width={20}
-            height={20}
-          />
+        <div className="flex items-center gap-1 sm:gap-2">
+  <Image
+    src={footerLogo}
+    alt="FitLog"
+    width={28}
+    height={28}
+    className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+  />
 
-          <h1
-            className={`${oswald.className} text-[13px] text-white`}
-          >
-            FITLOG
-          </h1>
-        </div>
+  <h1
+    className={`${oswald.className} text-[12px] sm:text-sm md:text-lg text-white font-bold`}
+  >
+    FITLOG
+  </h1>
+</div>
 
        
-        <div className="text-[#6B7280] text-[11px] sm:text-[12px] text-center">
+        <div className="text-[#6B7280] text-[9px] sm:text-[12px] text-center">
           <p>© 2026 FitLog — Workout Library. Train hard, log honest.</p>
         </div>
       </div>

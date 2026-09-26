@@ -23,7 +23,6 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
   return (
     <div className="overflow-hidden rounded-2xl border border-gray-800 bg-[#0C0D10] text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
 
-      {/* Image */}
       <div className="relative  h-56 w-full ">
         <Image
           src={library.image}
@@ -35,12 +34,12 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
 
       <div className="p-5">
 
-        {/* Muscle Groups */}
+      
         <div className="mb-4 flex flex-wrap gap-2">
           {library.muscleGroups.map((muscle) => (
             <span
               key={muscle}
-              className="rounded-md bg-gray-800 px-2 py-1 text-xs text-gray-300"
+              className="rounded-md bg-[#C2F800] px-2 py-1 text-xs text-black"
             >
               {muscle}
             </span>
@@ -62,7 +61,7 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
   <div className="flex items-center gap-2 whitespace-nowrap">
     <FontAwesomeIcon
       icon={faClock}
-      className="text-[#9CA3AF] text-[16px]"
+      className=" text-[#C2F800] text-[16px]"
     />
 
     <span className="text-[16px] text-[#9CA3AF]">
@@ -70,11 +69,10 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
     </span>
   </div>
 
-  {/* Calories */}
   <div className="flex items-center gap-2 whitespace-nowrap">
     <FontAwesomeIcon
       icon={faFire}
-      className="text-[#9CA3AF] text-[16px]"
+      className=" text-[#C2F800] text-[16px]"
     />
 
     <span className="text-[16px] text-[#9CA3AF]">
@@ -82,27 +80,22 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
     </span>
   </div>
 
-  {/* Rating */}
   <div className="flex items-center gap-2 whitespace-nowrap">
     <FontAwesomeIcon
       icon={faStar}
-      className="text-[#9CA3AF] text-[16px]"
+      className="text-[#9CA3AF] text-[16px]  text-[#C2F800]"
     />
 
-    <span className="text-[16px] text-[#9CA3AF]">
+    <span className="text-[16px] text-[#9CA3AF] ">
       {library.rating}
     </span>
   </div>
 
 </div>
 
-
-
-        {/* Button */}
-
-        <Link href={`/libraries/${library.id}`}>
+   <Link href={`/libraries/${library.id}`}>
            
-           <button className="mt-5 w-full rounded-lg bg-white px-4 py-3 font-semibold text-black transition hover:bg-gray-200">
+           <button className="mt-5 w-full rounded-lg bg-[#C2F800] px-4 py-3 font-semibold text-black transition hover:bg-gray-200">
           View Workout
         </button>
 
@@ -115,3 +108,4 @@ const LibraryCard = ({ library }: LibraryCardProps) => {
 };
 
 export default LibraryCard;
+

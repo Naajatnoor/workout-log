@@ -26,21 +26,15 @@ const NotFound = () => {
             404
           </span>
         </div>
-
-        {/* Heading */}
         <h2
           className={`${oswald.className} text-2xl sm:text-3xl md:text-4xl text-white tracking-wide`}
         >
           WORKOUT NOT FOUND
         </h2>
-
-        {/* Description */}
         <p className="mt-3 text-sm sm:text-base text-[#9CA3AF] max-w-md mx-auto leading-relaxed">
           Looks like this workout took a rest day. The page you&apos;re
           looking for doesn&apos;t exist or may have been moved.
         </p>
-
-        {/* Button */}
         <Link
           href="/"
           className="
@@ -65,8 +59,6 @@ const NotFound = () => {
         >
           ← Back to Workouts
         </Link>
-
-        {/* Small bottom text */}
         <p className="mt-8 text-[11px] uppercase tracking-[3px] text-[#4B4D52]">
           Train hard • Log honest
         </p>

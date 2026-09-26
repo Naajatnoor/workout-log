@@ -3,9 +3,12 @@ import { Geist, Geist_Mono, } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import WorkoutsProvider from "./context/workoutsProvider";
+import {toast} from 'react-toastify'
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { ToastContainer } from "react-toastify";
 config.autoAddCss = false
 
 const geistSans = Geist({
@@ -31,13 +34,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-screen bg-black flex flex-col">
       
-        <Navbar />
+      <WorkoutsProvider>
+         <Navbar />
 
         <main className="flex-1">
           {children}
         </main>
-
+       <ToastContainer/>
         <Footer />
+      </WorkoutsProvider>
+       
         
         </body>
     </html>
