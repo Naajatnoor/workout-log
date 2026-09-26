@@ -30,12 +30,7 @@ const Banner = () => {
             TRAIN WITH INTENT. LOG <br className="hidden sm:block" />
             EVERY SET.
           </h1>
-  {/* <h1
-            className='text-3xl sm:text-4xl md:text-4xl lg:text-[39px] font-extrabold text-white leading-tight'
-          >
-            TRAIN WITH INTENT. LOG <br className="hidden sm:block" />
-            EVERY SET.
-          </h1> */}
+ 
 
   <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed max-w-xl">
     FitLog is a dark, no-nonsense gym companion: pick a lift, lock it

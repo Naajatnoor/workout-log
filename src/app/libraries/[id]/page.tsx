@@ -50,7 +50,7 @@ const LibraryDetailPage = async ({
     <div className="bg-[#0C0D10] text-white min-h-screen p-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-        {/* IMAGE */}
+    
 
         <Image
           src={workout.image}
@@ -60,7 +60,7 @@ const LibraryDetailPage = async ({
           className="w-full h-[815px] object-cover rounded-xl"
         />
 
-        {/* CONTENT */}
+      
 
         <div>
 
@@ -72,7 +72,7 @@ const LibraryDetailPage = async ({
             {workout.description}
           </p>
 
-          {/* Muscle */}
+         
 
           <div className="flex flex-wrap gap-2 mt-5">
             {workout.muscleGroups?.map((muscle, index) => (
@@ -85,7 +85,7 @@ const LibraryDetailPage = async ({
             ))}
           </div>
 
-          {/* Details */}
+     
 
           <div className="mt-8 rounded-xl border border-[#252932] bg-[#15181F]">
 
@@ -114,7 +114,7 @@ const LibraryDetailPage = async ({
 
           </div>
 
-          {/* Instructions */}
+          
 
           <div className="mt-8">
 
@@ -139,7 +139,6 @@ const LibraryDetailPage = async ({
 
           </div>
 
-          {/* Buttons */}
 
           <div className="flex gap-3 mt-8">
 
