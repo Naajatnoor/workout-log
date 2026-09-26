@@ -445,5 +445,4 @@ const PlanPage = () => {
     </div>
   );
 };
-
 export default PlanPage;
