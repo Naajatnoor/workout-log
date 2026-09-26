@@ -6,9 +6,9 @@ FitLog is a modern and responsive workout library web application built with **N
 
 ## 🚀 Live Demo
 
-**Live Website:** Add your deployed Vercel link here
+Live Website: https://workout-log-liard.vercel.app/
 
-**GitHub Repository:** Add your GitHub repository link here
+GitHub Repository: https://github.com/Naajatnoor/workout-log
 
 ---
 
