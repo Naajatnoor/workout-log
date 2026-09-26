@@ -126,38 +126,45 @@ const PlanPage = () => {
    
 
         <div className="flex flex-1 flex-col items-center justify-center text-center">
+           <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+            Exercises
+          </p>
+      
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
             {totalExercises}
           </h2>
-
-          <p className="mt-1 text-xs text-gray-400 sm:text-sm">
-            Exercises
-          </p>
-        </div>
+  </div>
+         
 
     
 
         <div className="flex flex-1 flex-col items-center justify-center border-x border-[#33363D] text-center">
+
+           <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+            Minutes
+          </p>
+
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
             {totalMinutes}
           </h2>
 
-          <p className="mt-1 text-xs text-gray-400 sm:text-sm">
-            Minutes
-          </p>
+         
         </div>
 
   
 
         <div className="flex flex-1 flex-col items-center justify-center text-center">
+
+           <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+            Calories
+          </p>
+       
+
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
             {totalCalories}
           </h2>
-
-          <p className="mt-1 text-xs text-gray-400 sm:text-sm">
-            Calories
-          </p>
-        </div>
+ </div>
+         
 
       </div>
 
