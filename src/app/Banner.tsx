@@ -24,38 +24,31 @@ const Banner = () => {
     WORKOUT LIBRARY
   </p>
 
-  {/* <h1
-            className={`${oswald.className} text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold -xt-[#ffffff] leading-tight`}
-          >
-            TRAIN WITH INTENT. LOG <br className="hidden sm:block" />
-            EVERY SET.
-          </h1> */}
   <h1
-            className='text-3xl sm:text-4xl md:text-4xl lg:text-[39px] font-extrabold text-white leading-tight'
+            className={`${oswald.className} text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#ffffff] leading-tight`}
           >
             TRAIN WITH INTENT. LOG <br className="hidden sm:block" />
             EVERY SET.
           </h1>
+  {/* <h1
+            className='text-3xl sm:text-4xl md:text-4xl lg:text-[39px] font-extrabold text-white leading-tight'
+          >
+            TRAIN WITH INTENT. LOG <br className="hidden sm:block" />
+            EVERY SET.
+          </h1> */}
 
   <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed max-w-xl">
     FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
     into todays plan, and watch the weeks work add up.
   </p>
 
-  <button
-    className="
-      bg-[#C2F800]
-      text-black
-      px-4 py-3
-      rounded-md
-      font-bold
-      text-sm sm:text-base
-      hover:bg-[#b4e600]
-      transition
-    "
-  >
-    BROWSE WORKOUTS
-  </button>
+ <a
+  href="#library"
+  className="inline-flex items-center gap-2 bg-[#C2F800] text-black px-4 py-3 rounded-md font-bold"
+>
+  BROWSE WORKOUTS
+ 
+</a>
 </div>
 
         {/* Image */}
