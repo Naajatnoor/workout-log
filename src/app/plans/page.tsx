@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import Image from "next/image";
@@ -6,9 +7,10 @@ import Link from "next/link";
 import { Oswald } from "next/font/google";
 
 import { WorkoutsContext } from "../context/workoutsProvider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faCheck,
   faClock,
   faFire,
 } from "@fortawesome/free-solid-svg-icons";
@@ -28,11 +30,7 @@ const PlanPage = () => {
     setSaveForLater,
   } = useContext(WorkoutsContext);
 
-
-
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
-
- 
 
   const [sortBy, setSortBy] = useState<
     "duration" | "caloriesBurned" | "rating"
@@ -40,13 +38,11 @@ const PlanPage = () => {
 
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
-
-
+  // Current tab data
   const currentData =
     activeTab === "today" ? todaysPlan : saveForLater;
 
- 
-
+  // Sort current list
   const sortedData = [...currentData].sort((a, b) => {
     let result = 0;
 
@@ -65,49 +61,55 @@ const PlanPage = () => {
     return sortOrder === "asc" ? result : -result;
   });
 
- 
 
   const totalExercises = todaysPlan.length;
 
   const totalMinutes = todaysPlan.reduce(
-    (sum, workout) => sum + workout.duration, 0);
+    (sum, workout) => sum + workout.duration,
+    0
+  );
 
   const totalCalories = todaysPlan.reduce(
-    (sum, workout) => sum + workout.caloriesBurned,0);
+    (sum, workout) => sum + workout.caloriesBurned,
+    0
+  );
 
-
+  
   const handleMarkAsDone = (id: number) => {
     const workout = todaysPlan.find(
       (item) => item.id === id
     );
 
+    if (!workout) return;
+
     setTodaysPlan((prev) =>
-      prev.filter((workout) => workout.id !== id)
+      prev.filter((item) => item.id !== id)
     );
 
-    if (workout) {
-      toast.error(`"${workout.name}" marked as done`);
-    }
+    toast.error(`"${workout.name}" marked as done!`);
   };
 
-
+  // Remove workout from Saved
   const handleRemoveSaved = (id: number) => {
     const workout = saveForLater.find(
       (item) => item.id === id
     );
 
+    if (!workout) return;
+
     setSaveForLater((prev) =>
       prev.filter((item) => item.id !== id)
     );
 
-    if (workout) {
-      toast.error(`"${workout.name}" removed from saved`);
-    }
+    toast.error(`"${workout.name}" removed from saved.`);
   };
 
   return (
     <div className="min-h-screen bg-[#0C0D10] pb-10">
+
+     
       <div className="px-5 pt-8 sm:px-8 lg:px-10">
+
         <h1
           className={`${oswald.className} text-3xl font-semibold text-white sm:text-4xl`}
         >
@@ -117,30 +119,31 @@ const PlanPage = () => {
         <p className="mt-2 text-sm text-[#8A92A0] sm:text-base">
           Cap of five lifts for today. Finish them, then load more.
         </p>
+
       </div>
 
-    
 
+     
       <div className="mx-5 my-8 flex rounded-2xl border border-[#33363D] bg-[#13161D] px-4 py-6 sm:mx-8 sm:px-8 lg:m-10 lg:px-10 lg:py-8">
 
-   
-
+     
         <div className="flex flex-1 flex-col items-center justify-center text-center">
-           <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+
+          <p className="mt-1 text-xs text-gray-400 sm:text-sm">
             Exercises
           </p>
-      
+
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
             {totalExercises}
           </h2>
-  </div>
-         
+
+        </div>
+
 
     
-
         <div className="flex flex-1 flex-col items-center justify-center border-x border-[#33363D] text-center">
 
-           <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+          <p className="mt-1 text-xs text-gray-400 sm:text-sm">
             Minutes
           </p>
 
@@ -148,34 +151,32 @@ const PlanPage = () => {
             {totalMinutes}
           </h2>
 
-         
         </div>
 
-  
 
+        
         <div className="flex flex-1 flex-col items-center justify-center text-center">
 
-           <p className="mt-1 text-xs text-gray-400 sm:text-sm">
+          <p className="mt-1 text-xs text-gray-400 sm:text-sm">
             Calories
           </p>
-       
 
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
             {totalCalories}
           </h2>
- </div>
-         
+
+        </div>
 
       </div>
 
-   
 
+      
       <div className="mx-5 mb-6 flex flex-col gap-4 sm:mx-8 lg:mx-10 lg:flex-row lg:items-center lg:justify-between">
 
+        {/* Tabs */}
         <div className="relative flex w-fit items-center gap-1 rounded-2xl border border-[#33363D] bg-[#13161D] p-1.5">
 
-        
-
+          {/* Sliding background */}
           <div
             className={`absolute bottom-1.5 top-1.5 w-[120px] rounded-xl bg-[#C2F800] transition-all duration-300 ${
               activeTab === "saved"
@@ -184,8 +185,7 @@ const PlanPage = () => {
             }`}
           />
 
-         
-
+   
           <button
             onClick={() => setActiveTab("today")}
             className={`relative z-10 w-[120px] rounded-xl py-2.5 text-sm font-semibold transition ${
@@ -197,8 +197,8 @@ const PlanPage = () => {
             Today's Plan
           </button>
 
-          {/* Saved */}
 
+          {/* Saved */}
           <button
             onClick={() => setActiveTab("saved")}
             className={`relative z-10 w-[120px] rounded-xl py-2.5 text-sm font-semibold transition ${
@@ -213,11 +213,13 @@ const PlanPage = () => {
         </div>
 
 
+     
         <div className="flex items-center gap-2">
 
           <span className="text-sm text-gray-400">
-            Sort:
+            Sort by:
           </span>
+
 
           <select
             value={sortBy}
@@ -231,21 +233,23 @@ const PlanPage = () => {
             }
             className="rounded-lg border border-[#33363D] bg-[#13161D] px-4 py-2.5 text-sm font-medium text-white outline-none transition focus:border-[#C2F800]"
           >
+
             <option value="duration">
               Duration
             </option>
 
             <option value="caloriesBurned">
-              Calorie
+              Calories
             </option>
 
             <option value="rating">
               Rating
             </option>
+
           </select>
 
-      
 
+       
           <button
             onClick={() =>
               setSortOrder((prev) =>
@@ -266,10 +270,10 @@ const PlanPage = () => {
 
       </div>
 
-     
 
-      {
-      currentData.length === 0 ? (
+     
+      {currentData.length === 0 ? (
+
         <div className="mx-5 rounded-2xl border border-[#33363D] bg-[#13161D] px-5 py-30 text-center sm:mx-10 lg:mx-10 lg:py-20">
 
           <h1
@@ -293,6 +297,7 @@ const PlanPage = () => {
 
       ) : (
 
+      
         <div className="mx-5 space-y-5 sm:mx-8 lg:mx-10">
 
           {sortedData.map((workout) => (
@@ -304,7 +309,7 @@ const PlanPage = () => {
 
               <div className="flex min-w-0 items-center gap-4 sm:gap-5">
 
-
+          
                 <div className="shrink-0">
 
                   <Image
@@ -317,8 +322,8 @@ const PlanPage = () => {
 
                 </div>
 
-          
 
+          
                 <div className="min-w-0 flex-1">
 
                   <h2
@@ -327,14 +332,13 @@ const PlanPage = () => {
                     {workout.name}
                   </h2>
 
-          
 
                   <p className="mt-1 truncate text-sm text-[#8A92A0]">
                     {workout.equipment}
                   </p>
 
-                  <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-[#292D35] pt-4">
 
+                  <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-[#292D35] pt-4">
 
                     <div className="flex items-center gap-2 whitespace-nowrap">
 
@@ -350,6 +354,7 @@ const PlanPage = () => {
                     </div>
 
 
+                  
                     <div className="flex items-center gap-2 whitespace-nowrap">
 
                       <FontAwesomeIcon
@@ -364,6 +369,7 @@ const PlanPage = () => {
                     </div>
 
 
+                   
                     <div className="flex items-center gap-2 whitespace-nowrap">
 
                       <FontAwesomeIcon
@@ -383,11 +389,10 @@ const PlanPage = () => {
 
               </div>
 
-           
 
               <div className="flex shrink-0 items-center justify-end gap-3">
 
-
+              
                 <Link
                   href={`/libraries/${workout.id}`}
                   className="rounded-lg border border-[#4A4D55] px-4 py-2.5 text-sm font-semibold text-white transition hover:border-[#C2F800] hover:text-[#C2F800] sm:px-5"
@@ -395,10 +400,26 @@ const PlanPage = () => {
                   View Details
                 </Link>
 
-             
 
-                {activeTab === "saved" ? (
+               
+                {activeTab === "today" ? (
 
+                  <button
+                    onClick={() =>
+                      handleMarkAsDone(workout.id)
+                    }
+                    className="flex items-center gap-2 rounded-md bg-[#C2F800] px-3 py-2 text-[13px] font-bold text-black transition hover:bg-[#b4e600]"
+                  >
+
+                    <FontAwesomeIcon icon={faCheck} />
+
+                    MARK AS DONE
+
+                  </button>
+
+                ) : (
+
+                
                   <button
                     onClick={() =>
                       handleRemoveSaved(workout.id)
@@ -407,17 +428,6 @@ const PlanPage = () => {
                     title="Remove from saved"
                   >
                     ×
-                  </button>
-
-                ) : (
-
-                  <button
-                    onClick={() =>
-                      handleMarkAsDone(workout.id)
-                    }
-                    className="rounded-lg bg-[#C2F800] px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-[#AEEF00] sm:px-5"
-                  >
-                    Mark as Done
                   </button>
 
                 )}
